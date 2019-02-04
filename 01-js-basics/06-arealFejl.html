@@ -15,8 +15,12 @@
 
         function areal(l, b) {
             let a = (l * b);
+            console.log("l " + typeof(l));
+            console.log("a " + typeof(a));
 
-            if (a == 0) {
+            if (l == "" && b == "") {
+                return (`Fejl. \n Prøv igen ved at indsætte værdi.`)
+            } else if (a == 0) {
                 return (`Husk længde og bredde skal være tal over 0. \n Prøv igen.`)
             } else if (isNaN(a)) {
                 return (`Fejl. \n Prøv igen med tal.`)
