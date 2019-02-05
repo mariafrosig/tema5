@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <script>
+        let point = 0;
+
+        alert("Velkommen til min quiz"), s1();
+
+        function s1() {
+            if (confirm("Er en hval et pattedyr? Tryk OK for ja, og annuller for nej")) {
+                point++;
+                alert("Du fik et point!");
+                s2();
+
+            } else {
+                alert("Øv du fik ikke et point!");
+                s2();
+            }
+        }
+
+        function s2() {
+            console.log("point =" + point);
+
+            if (confirm("Er en kat et dyr? Tryk OK for ja, og annuller for nej")) {
+                point++;
+                alert("Du fik et point!");
+                s3();
+            } else {
+                alert("Øv du fik ikke et point!");
+                s3();
+            }
+        }
+
+        function s3() {
+            console.log("point =" + point);
+
+            if (confirm("Er en hund et dyr? Tryk OK for ja, og annuller for nej")) {
+                point++;
+                alert("Du fik et point!");
+                s4();
+            } else {
+                alert("Øv du fik ikke et point!");
+                s4();
+            }
+        }
+
+        function s4() {
+            console.log("point =" + point);
+
+            if (confirm("Er en giraf et dyr? Tryk OK for ja, og annuller for nej")) {
+                point++;
+                alert("Du fik et point!");
+                s5();
+            } else {
+                alert("Øv du fik ikke et point!");
+                s5();
+            }
+        }
+
+        function s5() {
+            console.log("point =" + point);
+
+            if (confirm("Er en leopard et dyr? Tryk OK for ja, og annuller for nej")) {
+                point++;
+                alert("Du fik et point!");
+                gameEnd();
+            } else {
+                gameEnd();
+            }
+        }
+
+
+
+
+        function gameEnd() {
+            alert(`Du fik ${point} ud af 5`);
+        }
+    </script>
+
+</body>
+
+</html>
