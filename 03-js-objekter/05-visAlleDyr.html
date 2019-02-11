@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="liste"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        let dyr = [{
+                "Navn": "Gris",
+                "Type": "Pattedyr",
+                "Levested": "Svinefarme",
+                "Billede": "http://helf-kea.dk/test/gris.png"
+            },
+            {
+                "Navn": "Frø",
+                "Type": "Amfibie",
+                "Levested": "Mose",
+                "Billede": "http://helf-kea.dk/test/frog.png"
+            },
+            {
+                "Navn": "Ræv",
+                "Type": "Pattedyr",
+                "Levested": "Skoven",
+                "Billede": "http://helf-kea.dk/test/fox.png"
+            },
+            {
+                "Navn": "Sild",
+                "Type": "Fisk",
+                "Levested": "Vand",
+                "Billede": "http://helf-kea.dk/test/sild.jpg"
+            },
+            {
+                "Navn": "Krokodille",
+                "Type": "Krybdyr",
+                "Levested": "Australien",
+                "Billede": "http://helf-kea.dk/test/kroko.jpg"
+            }
+        ]
+
+
+        console.log(dyr);
+
+        //        console.log(' Dyr: ' + dyr.Navn + ', Type: ' + dyr.Type + ', Levested: ' + dyr.Levested);
+
+
+
+
+        function start() {
+
+            let dest = document.querySelector("#liste");
+            dyr.forEach(dyrListe => {
+                dest.innerHTML += `${dyrListe.Navn}, ${dyrListe.Type}, ${dyrListe.Levested} <br>`;
+            })
+
+
+        }
+    </script>
+
+</body>
+
+</html>
