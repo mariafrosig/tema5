@@ -59,14 +59,17 @@
 </head>
 
 <body>
+
     <div class="center">
-        <h1>Personliste</h1>
+        <h1>Alle</h1>
     </div>
 
+
+
     <div class="menu">
-        <button class="filter" data-hold="alle">Alle</button>
+        <button class="filter valgt" data-hold="alle">Alle</button>
         <button class="filter" data-hold="a">Hold A</button>
-        <button class="filter" class="valgt" data-hold="b">Hold B</button>
+        <button class="filter" data-hold="b">Hold B</button>
     </div>
 
     <div id="personer">
@@ -75,7 +78,7 @@
 
     <script>
         let personer = [];
-        let filter = "b";
+        let filter = "alle";
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
@@ -86,11 +89,11 @@
                 personer = await jsonData.json();
                 visPersoner();
             }
-            console.log(personer);
 
             function visPersoner() {
+                dest.innerHTML = "";
                 personer.forEach(personer => {
-                    if (personer.hold == filter) {
+                    if (filter == "alle" || filter == personer.hold) {
 
 
                         dest.innerHTML +=
@@ -112,6 +115,21 @@ target="_blank"><b>Github</b></a>
 
                     }
                 })
+
+
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.addEventListener("click", filtering);
+                })
+
+                function filtering() {
+                    filter = this.getAttribute("data-hold");
+                    document.querySelector("h1").textContent = this.textContent;
+                    document.querySelectorAll(".filter").forEach(elm => {
+                        elm.classList.remove("valgt");
+                    })
+                    this.classList.add("valgt");
+                    visPersoner();
+                }
             }
             getJson();
         }
