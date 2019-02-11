@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="liste"></div>
+
+    <script>
+        let nyheder = [{
+                "Titel": "Bison burger spist væk",
+                "Beskrivelse": "Wooow, I var vilde med vores bison burger! Det oplyser Café Korn – Roskilde, som samtidig meddelte, at der er udsolgt over hele linjen, men at gæsterne ikke behøver at fortvivle – den forbliver i en lidt anden udgave ugen ud.",
+                "Dato": "5. februar 2019",
+                "Billede": "https://dit-roskilde.dk/wp-content/uploads/2019/02/Cafe-Korn-feb-2019-abw-29-200x150.jpg"
+            }, {
+                "Titel": "Smukke Roskilde",
+                "Beskrivelse": "Jeg var på vej igennem byen en gråvejrsdag og så dette skønne syn. Synes det ser ret vildt ud. Så det vil jeg da gerne dele med jer.  Dit Roskilde siger mange tak til Julie R. Ingemann.",
+                "Dato": "5. februar 2019",
+                "Billede": "https://dit-roskilde.dk/wp-content/uploads/2019/02/image1-200x150.jpg"
+            },
+            {
+                "Titel": "Alt begynder med en drøm!",
+                "Beskrivelse": "Det er DIN ALDER, din hud, din krop og dig der bestemmer! Dette er mantraet hos Nanni Lundsteen, som er ny iværksætter i Trekroner og hun har en vision om at yde profesionelle og æstetiske anti-age behandlinger i hendes klinik CONFIDENT.",
+                "Dato": "5. februar 2019",
+                "Billede": "https://dit-roskilde.dk/wp-content/uploads/2019/02/51641786_2280603682263095_6746855338059759616_n-200x150.jpeg"
+            }, {
+                "Titel": "Start træning i LifeClub i februar og få den første måned til kun 99,- kr.",
+                "Beskrivelse": "Start træning i LifeClub i februar og få den første måned til kun 99,-",
+                "Dato": "5. februar 2019",
+                "Billede": "https://dit-roskilde.dk/wp-content/uploads/2019/02/Februar-2019-200x150.jpg"
+            }, {
+                "Titel": "Sygefraværet falder i Roskilde Kommune",
+                "Beskrivelse": "Roskilde Kommune har igennem de seneste år arbejdet på at få medarbejdertrivslen op og sygefraværet ned. De seneste tal bekræfter, at indsatserne nu giver resultater. Sygefraværet i Roskilde er på bare et år faldet fra 14,4 dage pr. medarbejder til 13,7 dage pr. medarbejder – Faldet fra 2017 til 2018 svarer til 13 fuldtidsstillinger eller 25.000 arbejdstimer.",
+                "Billede": "https://dit-roskilde.dk/wp-content/uploads/2019/02/Vaccination-vaccine-l%C3%A6ge-fork%C3%B8lelse-abw-200x150.jpg"
+            },
+
+
+        ]
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        function start() {
+            console.log("Start");
+
+            let dest = document.querySelector("#liste");
+
+            function visNyheder() {
+                console.log("visListe");
+
+                nyheder.forEach(nyheden => {
+                    dest.innerHTML += ` <div id="nyhed_boks">
+                    <h1>${nyheden.Titel}</h1>
+                    <img src=\"${nyheden.Billede}\" >
+                    <h3>${nyheden.Beskrivelse} <br> ${nyheden.Dato} </h3>
+    </div>
+`;
+                })
+            }
+
+            visNyheder();
+
+        }
+    </script>
+
+    <style>
+        #nyhed_boks {
+            border: 1px solid black;
+            margin: 2px;
+        }
+    </style>
+
+</body>
+
+</html>

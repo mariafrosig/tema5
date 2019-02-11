@@ -1,0 +1,31 @@
+[{
+        "Navn": "Gris",
+        "Type": "Pattedyr",
+        "Levested": "Svinefarme",
+        "Billede": "http://helf-kea.dk/test/gris.png"
+            },
+    {
+        "Navn": "Frø",
+        "Type": "Amfibie",
+        "Levested": "Mose",
+        "Billede": "http://helf-kea.dk/test/frog.png"
+            },
+    {
+        "Navn": "Ræv",
+        "Type": "Pattedyr",
+        "Levested": "Skoven",
+        "Billede": "http://helf-kea.dk/test/fox.png"
+            },
+    {
+        "Navn": "Sild",
+        "Type": "Fisk",
+        "Levested": "Vand",
+        "Billede": "http://helf-kea.dk/test/sild.jpg"
+            },
+    {
+        "Navn": "Krokodille",
+        "Type": "Krybdyr",
+        "Levested": "Australien",
+        "Billede": "http://helf-kea.dk/test/kroko.jpg"
+            }
+        ]

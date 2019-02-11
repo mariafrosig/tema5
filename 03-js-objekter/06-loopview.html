@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="liste"></div>
+
+    <script>
+        let dyr = [{
+                "Navn": "Gris",
+                "Type": "Pattedyr",
+                "Levested": "Svinefarme",
+                "Billede": "http://helf-kea.dk/test/gris.png"
+            },
+            {
+                "Navn": "Frø",
+                "Type": "Amfibie",
+                "Levested": "Mose",
+                "Billede": "http://helf-kea.dk/test/frog.png"
+            },
+            {
+                "Navn": "Ræv",
+                "Type": "Pattedyr",
+                "Levested": "Skoven",
+                "Billede": "http://helf-kea.dk/test/fox.png"
+            },
+            {
+                "Navn": "Sild",
+                "Type": "Fisk",
+                "Levested": "Vand",
+                "Billede": "http://helf-kea.dk/test/sild.jpg"
+            },
+            {
+                "Navn": "Krokodille",
+                "Type": "Krybdyr",
+                "Levested": "Australien",
+                "Billede": "http://helf-kea.dk/test/kroko.jpg"
+            }
+        ]
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        function start() {
+            console.log("STart");
+
+            let dest = document.querySelector("#liste");
+
+            function visDyr() {
+                console.log("visDyr");
+
+                dyr.forEach(dyret => {
+                    dest.innerHTML += ` <div id="dyret">
+                    <h1>${dyret.Navn}</h1>
+                    <img src=\"${dyret.Billede}\" >
+                    <h3>Type: ${dyret.Type} <br> Levested: ${dyret.Levested} </h3>
+    </div>
+`;
+                })
+            }
+
+            visDyr();
+
+        }
+    </script>
+
+    <style>
+        #dyret {
+            border: 1px solid black;
+            margin: 2px;
+        }
+    </style>
+
+</body>
+
+</html>

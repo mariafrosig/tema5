@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="liste"></div>
+
+    <script>
+        let dyr = [];
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        function start() {
+            console.log("Start");
+
+            let dest = document.querySelector("#liste");
+
+
+            async function getJson() {
+                let jsonData = await fetch("dyr.json");
+                dyr = await jsonData.json();
+                visDyr();
+            }
+
+            function visDyr() {
+                console.log("visDyr");
+
+                dyr.forEach(dyret => {
+                    dest.innerHTML += ` <div id="dyret">
+                    <h1>${dyret.Navn}</h1>
+                    <img src=\"${dyret.Billede}\" >
+                    <h3>Type: ${dyret.Type} <br> Levested: ${dyret.Levested} </h3>
+    </div>
+`;
+                })
+            }
+
+            getJson();
+
+        }
+    </script>
+
+    <style>
+        #dyret {
+            border: 1px solid black;
+            margin: 2px;
+        }
+    </style>
+
+</body>
+
+</html>

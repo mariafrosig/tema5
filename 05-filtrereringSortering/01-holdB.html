@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #personer {
+            display: grid;
+            grid-template-columns: auto auto;
+            margin: 0 auto;
+        }
+
+        .vis {
+            background-color: #bababa;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 1vw;
+            margin: 1vw auto;
+        }
+
+        .center {
+            text-align: center;
+            font-size: 200%;
+        }
+
+
+        .vis img {
+            width: 80%;
+        }
+
+        a {
+            color: black;
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="center">
+        <h1>Personliste</h1>
+    </div>
+
+    <div id="personer">
+
+    </div>
+
+    <script>
+        let personer = [];
+        let filter = "b";
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            let dest = document.querySelector("#personer");
+
+            async function getJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
+                personer = await jsonData.json();
+                visPersoner();
+            }
+            console.log(personer);
+
+            function visPersoner() {
+                personer.forEach(personer => {
+                    if (personer.hold == filter) {
+
+
+                        dest.innerHTML +=
+                            `<div class="vis">
+<div>
+
+<img src="${personer.billede}"</p>
+</div>
+<div>
+ <h2>${personer.navn}</h2>
+<a href="https://github.com/${personer.github}"
+target="_blank"><b>Github</b></a>
+<p><b>Alder:</b> ${personer.alder}</p>
+<p><b>Køn:</b> ${personer.køn}</p>
+<p><b>Email:</b> ${personer.email}</p>
+<p><b>Hold:</b> ${personer.hold}</p>
+</div>
+        </div>`
+
+                    }
+                })
+            }
+            getJson();
+        }
+    </script>
+</body>
+
+</html>
