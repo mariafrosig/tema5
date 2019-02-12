@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #popup {
+            width: 100vw;
+            height: 100vh;
+            background-color: red;
+            top: 0;
+
+        }
+
+        #indhold {
+            width: 60vw;
+            height: 60vh;
+            background-color: gray;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        #luk {
+            text-align: right;
+            box-sizing: border-box;
+            padding: 2em;
+        }
+
+        #luk button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="singleview">
+        <div id="luk"><button>X</button></div>
+        <div id="indhold"></div>
+    </div>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let github = urlParams.get("github");
+
+        console.log(github);
+
+        let personer = [];
+        let filter = "alle";
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            let dest = document.querySelector("#personer");
+
+            async function getJson() {
+                console.log("JSON loaded")
+
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
+                personer = await jsonData.json();
+                personer.forEach(obj => {
+                    if (obj.github == github) {
+                        person = obj;
+                    }
+                })
+                åbn();
+            }
+
+            function åbn() {
+                console.log("vis person")
+
+                //      document.querySelector("#indhold").innerHTML = `<div class="vis">
+                // <div>
+                // <img src="${personer.billede}" </p> // </div> // <div>
+                // <h2>${personer.navn}</h2>
+                // <a href="https://github.com/${personer.github}" // target="_blank"><b>Github</b></a>
+                // <p><b>Alder:</b> ${personer.alder}</p>
+                // <p><b>Køn:</b> ${personer.køn}</p>
+                // <p><b>Email:</b> ${personer.email}</p>
+                // <p><b>Hold:</b> ${personer.hold}</p>
+                // </div>
+                // </div>`
+            }
+
+            //          document.querySelector("#luk button").addEventListener("click", () => {
+            // console.log("luk");
+            // location.href = "05-kald.html"
+            // })
+
+            getJson();
+
+        }
+
+        function visPersoner() {
+
+
+
+        }
+    </script>
+</body>
+
+</html>
